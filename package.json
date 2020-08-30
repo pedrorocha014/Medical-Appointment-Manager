@@ -1,21 +1,21 @@
 {
-  "name": "desafio_cubos",
+  "name": "Medical Appointment_Manager",
   "version": "1.0.0",
-  "description": "Repositório para o desafio prposto para a seleção de dev junior",
+  "description": "Medical Appointment Manager is an API to manager the appointment at the medical area.",
   "main": "index.js",
   "scripts": {
     "start": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedrorocha014/Desafio_Cubos.git"
+    "url": "git+https://github.com/pedrorocha014/Medical-Appointment-Manager.git"
   },
   "author": "Pedro Almeida Rocha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pedrorocha014/Desafio_Cubos/issues"
+    "url": "https://github.com/pedrorocha014/Medical-Appointment-Manager/issues"
   },
-  "homepage": "https://github.com/pedrorocha014/Desafio_Cubos#readme",
+  "homepage": "https://github.com/pedrorocha014/Medical-Appointment-Manager#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
