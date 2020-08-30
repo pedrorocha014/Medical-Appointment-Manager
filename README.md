@@ -1,5 +1,5 @@
 # Medical Appointment Manager
-Medical Appointment Manager is an API to manager the appointment lines at the medical area.
+Medical Appointment Manager is an API to manager the appointment at the medical area.
 
 ## Usage
 sdfghjklç
