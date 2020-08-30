@@ -4,6 +4,11 @@
       "id": 0,
       "name": "PEDRO",
       "specialty": "GADO"
+    },
+    {
+      "id": 1,
+      "name": "Andrei",
+      "specialty": "BLA"
     }
   ]
 }
