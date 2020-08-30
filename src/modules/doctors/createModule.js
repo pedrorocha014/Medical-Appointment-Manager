@@ -4,12 +4,12 @@ var createDoctorRegister = function(name, specialty){
     var doctorsData = dataAccess.getDataFromFile("doctorDb.json");
 
     var doctorToRegister = {
-        "id": doctorsData.doctors.length,
+        "id": doctorsData.length,
         "name": name.toUpperCase(),
         "specialty": specialty.toUpperCase()
     }
 
-    doctorsData.doctors[doctorsData.doctors.length] = doctorToRegister;
+    doctorsData[doctorsData.length] = doctorToRegister;
 
     dataAccess.updateDataFile("doctorDb.json", doctorsData);
 

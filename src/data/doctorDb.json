@@ -1,14 +1,17 @@
-{
-  "doctors": [
-    {
-      "id": 0,
-      "name": "PEDRO",
-      "specialty": "GADO"
-    },
-    {
-      "id": 1,
-      "name": "Andrei",
-      "specialty": "BLA"
-    }
-  ]
-}
+[
+  {
+    "id": 0,
+    "name": "LIMA",
+    "specialty": "GADO"
+  },
+  {
+    "id": 1,
+    "name": "Andrew",
+    "specialty": "ghj,"
+  },
+  {
+    "id": 2,
+    "name": "LIMA",
+    "specialty": "GADO"
+  }
+]

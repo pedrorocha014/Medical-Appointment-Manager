@@ -10,9 +10,10 @@ exports.read = async function(req, res){
 
 exports.update = async function(req, res){
     const updateRegister = require('../modules/doctors/updateModule');
-    res.json(updateRegister());
+    res.json(updateRegister(req.body.id, req.body.name, req.body.specialty));
 }
 
 exports.delete = async function(req, res){
-    res.send("OK");
+    const deleteRegister = require('../modules/doctors/deleteModule');
+    res.json(deleteRegister(req.body.id));
 }

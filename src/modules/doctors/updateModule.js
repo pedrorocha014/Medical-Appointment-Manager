@@ -1,19 +1,21 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-var updateDoctorRegister = function(id, name, specialty){
-    var doctorsData = dataAccess.getDataFromFile("doctorDb.json");
+var updateDoctorRegister = function (id, name, specialty) {
+    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
 
-    var doctorToUpdate = {
-        "id": id,
-        "name": name,
-        "specialty": specialty
-    }
+    doctorsData.forEach((element, index) => {
+        if (element.id == id) {
+            const doctorToUpdate = {
+                "id": id,
+                "name": name,
+                "specialty": specialty
+            }
+            doctorsData[index] = doctorToUpdate;
+            dataAccess.updateDataFile("doctorDb.json", doctorsData);
+        }
+    });
 
-    doctorsData.doctors[id] = doctorToUpdate;
-
-    dataAccess.updateDataFile("doctorDb.json", doctorsData);
-
-    return doctorToUpdate;
+    return doctorsData;
 }
 
 module.exports = updateDoctorRegister;

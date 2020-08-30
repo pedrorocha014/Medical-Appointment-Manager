@@ -3,7 +3,7 @@ var path = require('path');
 
 exports.getDataFromFile = function(fileName){
     var dataFile =  fs.readFileSync(path.resolve(__dirname,'../data/' + fileName));
-
+    
     return JSON.parse(dataFile);
 }
 
