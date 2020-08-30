@@ -7,7 +7,7 @@ How to run server:
  - You must have NodeJs installed in your PC;
  - Run `npm install` after cloning the repo;
  - Go into the `src` folder in the terminal and run `node index.js`;
- - Import RequestExamples.json into Insomnia software in order to see all the requests working;
+ - Import `RequestExamples.json` into Insomnia software in order to see all the requests working;
 
  *Nodemon available*
  - Run the server with `nodemon main`;
