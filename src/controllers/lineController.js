@@ -1,6 +1,5 @@
 exports.create = async function(req, res){
     const createRegister = require('../modules/line/createModule');
-    console.log("s");
     res.json(createRegister(req.body.name, 
                             req.body.species,
                             req.body.breed, 
