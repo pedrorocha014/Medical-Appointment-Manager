@@ -1,25 +1,25 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-const attendLine = function(id, status){
-    const lineData = dataAccess.getDataFromFile("lineDb.json");
+const attendLine = function(id){
+    const appointmentData = dataAccess.getDataFromFile("appointmentDb.json");
 
-    lineData.forEach((element, index) => {
+    //atualizando o status da consulta em appointmentDb.json
+    appointmentData.forEach((element, index) => {
         if(element.id == id){
-            const lineChangedStatus = {
-                "id": element.id,
-                "name": element.name,
-                "species": element.species,
-                "breed": element.breed,
-                "urgency": element.urgency,
-                "specialty": element.specialty,
-                "status": status.toUpperCase()
-            }
+            const lineChangedStatus = element;
+            lineChangedStatus.status = "ATENDIDO";
 
-            lineData[index] = lineChangedStatus;
+            appointmentData[index] = lineChangedStatus;
 
-            dataAccess.updateDataFile("lineDb.json", lineData);
+            dataAccess.updateDataFile("appointmentDb.json", appointmentData);
         }
     });
+
+    //retirando o animal atendido da fila, lineDb.json
+    const lineData = dataAccess.getDataFromFile("lineDb.json");
+    const newLine = lineData.filter(element => element.id != id);
+
+    dataAccess.updateDataFile("lineDb.json", newLine);
 
     return lineData;
 }

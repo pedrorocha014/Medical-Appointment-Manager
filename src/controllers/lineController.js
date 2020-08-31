@@ -1,5 +1,6 @@
 exports.create = async function(req, res){
     const createRegister = require('../modules/line/createModule');
+    console.log("s");
     res.json(createRegister(req.body.name, 
                             req.body.species,
                             req.body.breed, 
@@ -24,5 +25,5 @@ exports.filter = async function(req, res){
 
 exports.attend = async function(req, res){
     const attendLine = require('../modules/line/attendModule');
-    res.json(attendLine(req.body.id, req.body.status));
+    res.json(attendLine(req.body.id));
 }
