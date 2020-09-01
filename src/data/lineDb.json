@@ -4,6 +4,15 @@
     "name": "JAMIRO",
     "species": "VACA",
     "breed": "VACA JAIRO",
+    "urgency": false,
+    "specialty": "FAZENDEIRO",
+    "status": "PENDENTE"
+  },
+  {
+    "id": 9,
+    "name": "JAIRO",
+    "species": "VACA",
+    "breed": "VACA JAIRO",
     "urgency": true,
     "specialty": "FAZENDEIRO",
     "status": "PENDENTE"
