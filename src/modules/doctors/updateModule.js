@@ -1,6 +1,6 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-var updateDoctorRegister = function (id, name, specialty) {
+const updateDoctorRegister = function (id, name, specialty) {
     const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
 
     doctorsData.forEach((element, index) => {

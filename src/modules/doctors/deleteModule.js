@@ -1,6 +1,6 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-var deleteDoctorRegister = function(id){
+const deleteDoctorRegister = function(id){
     const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
     const newDoctor = doctorsData.filter(doctor => doctor.id != id);
 

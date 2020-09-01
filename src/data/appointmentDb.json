@@ -60,6 +60,24 @@
     "breed": "VACA JAIRO",
     "urgency": true,
     "specialty": "FAZENDEIRO",
+    "status": "CANCELADO"
+  },
+  {
+    "id": 7,
+    "name": "JAMIRO",
+    "species": "VACA",
+    "breed": "VACA JAIRO",
+    "urgency": true,
+    "specialty": "FAZENDEIRO",
+    "status": "ATENDIDO"
+  },
+  {
+    "id": 8,
+    "name": "JAMIRO",
+    "species": "VACA",
+    "breed": "VACA JAIRO",
+    "urgency": true,
+    "specialty": "FAZENDEIRO",
     "status": "PENDENTE"
   }
 ]

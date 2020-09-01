@@ -1,7 +1,7 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-var readDoctorRegister = function(){
-    var doctorsData = dataAccess.getDataFromFile("doctorDb.json");
+const readDoctorRegister = function(){
+    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
 
     return doctorsData;
 }
