@@ -1,9 +1,9 @@
 const dataAccess = require('../../modules/dataAccessModule');
 
-var createDoctorRegister = function(name, specialty){
-    var doctorsData = dataAccess.getDataFromFile("doctorDb.json");
+const createDoctorRegister = function(name, specialty){
+    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
 
-    var doctorToRegister = {
+    const doctorToRegister = {
         "id": doctorsData.length,
         "name": name.toUpperCase(),
         "specialty": specialty.toUpperCase()
