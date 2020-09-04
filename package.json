@@ -1,5 +1,5 @@
 {
-  "name": "Medical Appointment_Manager",
+  "name": "MedicalAppointmentManager",
   "version": "1.0.0",
   "description": "Medical Appointment Manager is an API to manager the appointment at the medical area.",
   "main": "index.js",
