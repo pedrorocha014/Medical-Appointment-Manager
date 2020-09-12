@@ -1,13 +1,29 @@
 const { body, param } = require('express-validator');
 
-const validateObject = {
-    REGISTER: [
-                body(['name','species','breed','specialty']).isString().notEmpty(),
-                body(['urgency']).isBoolean().notEmpty()
-            ],
-    NEXTREATMENT: [param().isInt().notEmpty()],
-    ATTEND: [body(['id']).isNumeric().notEmpty()],
-    DELETE: [body(['id']).isNumeric().notEmpty()]
+const validate = function(method){
+    switch(method){
+        case 'register':{
+            return [
+                body(['name','species','breed','specialty']).exists().isString(),
+                body(['urgency']).exists().isBoolean()
+            ]
+        }
+        case 'nextTreatment':{
+            return [
+                param().exists().isNumeric()
+            ]
+        }
+        case 'attend':{
+            return [
+                body(['id']).exists().isNumeric()
+            ]
+        }
+        case 'delete':{
+            return [
+                body(['id']).exists().isNumeric()
+            ]
+        }
+    }
 }
 
-module.exports = validateObject;
+module.exports = validate;
