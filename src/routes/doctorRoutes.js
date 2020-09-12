@@ -1,11 +1,12 @@
 var express = require('express');
+const doctorController = require('../controllers/doctorController');
+const validate = require('../validators/doctorValidate');
+
 var doctorRouter = express.Router();
 
-const doctorController = require('../controllers/doctorController');
-
-doctorRouter.post('/register', doctorController.create);
+doctorRouter.post('/register', validate('register') , doctorController.create);
 doctorRouter.get('/list', doctorController.read );
-doctorRouter.put('/update', doctorController.update);
-doctorRouter.delete('/delete', doctorController.delete);
+doctorRouter.put('/update', validate('update') ,doctorController.update);
+doctorRouter.delete('/delete', validate('delete') ,doctorController.delete);
 
 module.exports = doctorRouter;    

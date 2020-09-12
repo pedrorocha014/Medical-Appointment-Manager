@@ -1,12 +1,13 @@
 var express = require('express');
+const lineController = require('../controllers/lineController');
+const validate = require('../validators/lineValidate');
+
 var lineRouter = express.Router();
 
-const lineController = require('../controllers/lineController');
-
-lineRouter.post('/register', lineController.create);
+lineRouter.post('/register', validate('register') ,lineController.create);
 lineRouter.get('/list', lineController.read );
-lineRouter.get('/nextTreatment/:id', lineController.filter);
-lineRouter.put('/attend', lineController.attend);
-lineRouter.delete('/delete', lineController.delete);
+lineRouter.get('/nextTreatment/:id', validate('nextTreatment') ,lineController.filter);
+lineRouter.put('/attend', validate('attend') ,lineController.attend);
+lineRouter.delete('/delete', validate('delete') ,lineController.delete);
 
 module.exports = lineRouter;    
