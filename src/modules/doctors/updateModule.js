@@ -1,21 +1,14 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Doctor = require('../../schemas/doctor');
+const mongoose = require('mongoose');
 
-const updateDoctorRegister = function (id, name, specialty) {
-    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
+const updateDoctorRegister = async function (id, name, specialty) {
 
-    doctorsData.forEach((element, index) => {
-        if (element.id == id) {
-            const doctorToUpdate = {
-                "id": id,
-                "name": name,
-                "specialty": specialty
-            }
-            doctorsData[index] = doctorToUpdate;
-            dataAccess.updateDataFile("doctorDb.json", doctorsData);
-        }
-    });
+    const data = await Doctor.findByIdAndUpdate({ _id: id }, {
+        "name": name,
+        "specialty": specialty
+    })
 
-    return doctorsData;
+    return data;
 }
 
 module.exports = updateDoctorRegister;

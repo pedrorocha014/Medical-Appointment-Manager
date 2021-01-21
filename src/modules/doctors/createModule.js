@@ -1,19 +1,17 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Doctor = require('../../schemas/doctor');
+const mongoose = require('mongoose');
 
-const createDoctorRegister = function(name, specialty){
-    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
+const createDoctorRegister = function (name, specialty) {
 
-    const doctorToRegister = {
-        "id": doctorsData.length,
-        "name": name.toUpperCase(),
-        "specialty": specialty.toUpperCase()
-    }
+    const doctor = new Doctor({
+        _id: new mongoose.Types.ObjectId(),
+        name: name.toUpperCase(),
+        specialty: specialty.toUpperCase()
+    });
 
-    doctorsData[doctorsData.length] = doctorToRegister;
+    doctor.save();
 
-    dataAccess.updateDataFile("doctorDb.json", doctorsData);
-
-    return doctorToRegister;
+    return doctor;
 }
 
 module.exports = createDoctorRegister;

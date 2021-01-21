@@ -12,7 +12,9 @@ exports.create = async function (req, res) {
 
 exports.read = async function (req, res) {
     const readRegister = require('../modules/doctors/readModule');
-    res.json(readRegister());
+    const data = await readRegister();
+
+    res.json(data);
 }
 
 exports.update = async function (req, res) {
@@ -22,7 +24,9 @@ exports.update = async function (req, res) {
     }
 
     const updateRegister = require('../modules/doctors/updateModule');
-    res.json(updateRegister(req.body.id, req.body.name, req.body.specialty));
+    const data = await updateRegister(req.body.id, req.body.name, req.body.specialty);
+    
+    res.json(data);
 }
 
 exports.delete = async function (req, res) {
@@ -32,5 +36,7 @@ exports.delete = async function (req, res) {
     }
 
     const deleteRegister = require('../modules/doctors/deleteModule');
-    res.json(deleteRegister(req.body.id));
+    const data = await deleteRegister(req.body.id);
+
+    res.json(data);
 }
