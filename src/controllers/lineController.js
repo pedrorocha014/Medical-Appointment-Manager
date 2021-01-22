@@ -16,7 +16,9 @@ exports.create = async function (req, res) {
 
 exports.read = async function (req, res) {
     const readRegister = require('../modules/line/readModule');
-    res.json(readRegister());
+    const data = await readRegister(); 
+
+    res.json(data);
 }
 
 exports.delete = async function (req, res) {
@@ -26,7 +28,9 @@ exports.delete = async function (req, res) {
     }
 
     const deleteRegister = require('../modules/line/deleteModule');
-    res.json(deleteRegister(req.body.id));
+    const data = await deleteRegister(req.body.id);
+
+    res.json(data);
 }
 
 exports.filter = async function (req, res) {
@@ -36,7 +40,8 @@ exports.filter = async function (req, res) {
     }
 
     const filterRegister = require('../modules/line/filterModule');
-    res.json(filterRegister(req.params.id));
+    const data = await filterRegister(req.params.id);
+    res.json(data);
 }
 
 exports.attend = async function (req, res) {
@@ -46,5 +51,7 @@ exports.attend = async function (req, res) {
     }
 
     const attendLine = require('../modules/line/attendModule');
-    res.json(attendLine(req.body.id));
+    const data = await attendLine(req.body.id);
+
+    res.json(data);
 }

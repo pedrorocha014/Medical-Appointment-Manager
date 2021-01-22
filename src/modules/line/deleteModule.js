@@ -1,27 +1,15 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Line = require('../../schemas/line');
+const Appointment = require('../../schemas/appointment');
+const mongoose = require('mongoose');
 
-const deleteLineRegister = function(id){
+const deleteLineRegister = async function(id){
     //atualizando o status da consulta
-    const appointmentData = dataAccess.getDataFromFile("appointmentDb.json");
-
-    appointmentData.forEach((element, index) => {
-        if(element.id == id){
-            const lineChangedStatus = element;
-            lineChangedStatus.status = "CANCELADO";
-
-            appointmentData[index] = lineChangedStatus;
-
-            dataAccess.updateDataFile("appointmentDb.json", appointmentData);
-        }
-    });
+    const appointmentCanceled = await Appointment.findByIdAndUpdate({_id: id}, {status: "CANCELADO"});
 
     //retirando o animal da fila
-    const lineData = dataAccess.getDataFromFile("lineDb.json");
-    const newLine = lineData.filter(element => element.id != id);
+    const lineDeleted = await Line.deleteOne({ _id: id });
 
-    dataAccess.updateDataFile("lineDb.json", newLine);
-
-    return newLine;
+    return {"Line": lineDeleted, "Appointment": appointmentCanceled};
 }
 
 module.exports = deleteLineRegister;

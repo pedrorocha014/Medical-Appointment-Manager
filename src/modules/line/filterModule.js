@@ -1,17 +1,23 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Line = require('../../schemas/line');
+const Doctor = require('../../schemas/doctor');
+const mongoose = require('mongoose');
 
-const filterRegister = function(doctorId){
-    const doctorData = dataAccess.getDataFromFile("doctorDb.json").find(doctor => doctor.id == doctorId);
-    const lineData = dataAccess.getDataFromFile("lineDb.json");
+const filterRegister = async function (doctorId) {
+    const doctor = await Doctor.findById(doctorId);
+    let line = await Line.findOne({
+        specialty: doctor.specialty,
+        urgency: true
+    });
 
-    //Verifico primeiro se existe emergência
-    var nextTreatment = lineData.find(element => element.specialty == doctorData.specialty && element.urgency == true);
-    
-    if (nextTreatment == null){
-        nextTreatment = lineData.find(element => element.specialty == doctorData.specialty);
+    console.log(line);
+
+    if (line == null) {
+        line = await Line.findOne({
+            specialty: doctor.specialty
+        });
     }
-    
-    return nextTreatment;
+
+    return line;
 }
 
 module.exports = filterRegister;

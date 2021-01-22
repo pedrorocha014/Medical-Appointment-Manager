@@ -1,9 +1,10 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Line = require('../../schemas/line');
+const mongoose = require('mongoose');
 
-const readLineRegister = function(){
-    const lineData = dataAccess.getDataFromFile("lineDb.json");
+const readLineRegister = async function(){
+    const data = await Line.find();
 
-    return lineData;
+    return data;
 }
 
 module.exports = readLineRegister;
