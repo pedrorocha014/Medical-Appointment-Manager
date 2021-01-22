@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
+const config = require('../config');
 const mongoose = require('mongoose');
 
 const doctorRouter = require('./routes/doctorRoutes');
@@ -8,7 +9,7 @@ const lineRouter = require('./routes/lineRoutes');
 
 const app = express();
 
-mongoose.connect("mongodb+srv://pedrorocha:<PASSWORD>@medical-appointment-man.zmrfp.mongodb.net/test?retryWrites=true&w=majority",
+mongoose.connect("mongodb+srv://pedrorocha:"+config.mongoose.password+"@medical-appointment-man.zmrfp.mongodb.net/test?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
