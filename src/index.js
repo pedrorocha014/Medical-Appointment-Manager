@@ -1,3 +1,6 @@
+const http = require('http');
+const port = process.env.PORT || 3000;
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
@@ -14,4 +17,5 @@ app.use(expressSession({ secret: 'max', saveUninitialized: false, resave: false 
 app.use('/doctor', doctorRouter);
 app.use('/line', lineRouter);
 
-app.listen('3000');
+const server = http.createServer(app);
+server.listen(port); 
