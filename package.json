@@ -4,7 +4,6 @@
   "description": "Medical Appointment Manager is an API to manager the appointment at the medical area.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
     "start": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
