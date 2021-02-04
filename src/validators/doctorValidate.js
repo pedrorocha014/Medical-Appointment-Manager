@@ -10,12 +10,12 @@ const validate = function(method){
         case 'update':{
             return [
                 body(['name', 'specialty']).exists().isString(),
-                body(['id']).exists().isNumeric()
+                body(['id']).exists().isHexadecimal()
             ]
         }
         case 'delete':{
             return [
-                body(['id']).exists().isNumeric()
+                body(['id']).exists().isHexadecimal()
             ]
         }
     }

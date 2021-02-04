@@ -1,12 +1,9 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Doctor = require('../../schemas/doctor');
+const mongoose = require('mongoose');
 
-const deleteDoctorRegister = function(id){
-    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
-    const newDoctor = doctorsData.filter(doctor => doctor.id != id);
-
-    dataAccess.updateDataFile("doctorDb.json", newDoctor);
-
-    return newDoctor;
+const deleteDoctorRegister = async function (id) {
+    const data = await Doctor.deleteOne({ _id: id });
+    return data;
 }
 
 module.exports = deleteDoctorRegister;

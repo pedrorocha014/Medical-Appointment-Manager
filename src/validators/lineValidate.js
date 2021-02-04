@@ -10,17 +10,17 @@ const validate = function(method){
         }
         case 'nextTreatment':{
             return [
-                param().exists().isNumeric()
+                param().exists().isHexadecimal()
             ]
         }
         case 'attend':{
             return [
-                body(['id']).exists().isNumeric()
+                body(['id']).exists().isHexadecimal()
             ]
         }
         case 'delete':{
             return [
-                body(['id']).exists().isNumeric()
+                body(['id']).exists().isHexadecimal()
             ]
         }
     }

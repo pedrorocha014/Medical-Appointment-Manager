@@ -1,9 +1,9 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Doctor = require('../../schemas/doctor');
+const mongoose = require('mongoose');
 
-const readDoctorRegister = function(){
-    const doctorsData = dataAccess.getDataFromFile("doctorDb.json");
-
-    return doctorsData;
+const readDoctorRegister = async function () {
+   const data =  await Doctor.find();
+   return data;
 }
 
 module.exports = readDoctorRegister;

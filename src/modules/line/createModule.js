@@ -1,9 +1,11 @@
-const dataAccess = require('../../modules/dataAccessModule');
+const Line = require('../../schemas/line');
+const Appointment = require('../../schemas/appointment');
+const mongoose = require('mongoose');
 
 const createLineRegister = function(name, species, breed, urgency, specialty){
 
-    const newData = {
-        "id": 0,
+    const data = {
+        "_id": new mongoose.Types.ObjectId(),
         "name": name.toUpperCase(),
         "species": species.toUpperCase(),
         "breed": breed.toUpperCase(),
@@ -13,17 +15,14 @@ const createLineRegister = function(name, species, breed, urgency, specialty){
     }
 
     //cadastrando a consulta no banco de consultas
-    const appointmentData = dataAccess.getDataFromFile("appointmentDb.json");
-    newData.id = appointmentData.length;
-    appointmentData[appointmentData.length] = newData;
-    dataAccess.updateDataFile("appointmentDb.json", appointmentData);
+    const appointment = new Appointment(data);
+    appointment.save();
 
     //cadastrando a consulta na fila
-    const lineData = dataAccess.getDataFromFile("lineDb.json");
-    lineData[lineData.length] = newData;
-    dataAccess.updateDataFile("lineDb.json", lineData);
+    const line = new Line(data);
+    line.save();
 
-    return newData;
+    return data;
 }
 
 module.exports = createLineRegister;

@@ -6,7 +6,7 @@ var lineRouter = express.Router();
 
 lineRouter.post('/register', validate('register') ,lineController.create);
 lineRouter.get('/list', lineController.read );
-lineRouter.get('/nextTreatment/:id', validate('nextTreatment') ,lineController.filter);
+lineRouter.get('/nextTreatment/:id' ,lineController.filter);
 lineRouter.put('/attend', validate('attend') ,lineController.attend);
 lineRouter.delete('/delete', validate('delete') ,lineController.delete);
 
