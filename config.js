@@ -1,5 +1,5 @@
 module.exports = {
   mongoose: {
-    password: "PASSWORD"
+    password: "XUiSOEzuY4L8gww6"
   }
 };
